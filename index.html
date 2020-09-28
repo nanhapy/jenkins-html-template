@@ -1,0 +1,51 @@
+<!-- saved from url=(0041)file:///C:/Users/layzh/Desktop/index.html -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+</head>
+
+<body>
+    <div class="bug-list">
+        <div class="bug-item">
+            1. There is a bug:
+            <input class="bug-input" placeholder="please input bug no."></input>
+        </div>
+        <div class="bug-item">
+            2. There is a bug:
+            <input class="bug-input" placeholder="please input bug no."></input>
+        </div>
+        <div class="bug-item">
+            3. There is a bug:
+            <input class="bug-input" placeholder="please input bug no."></input>
+        </div>
+        <div class="bug-item">
+            4. There is a bug:
+            <input class="bug-input" placeholder="please input bug no."></input>
+        </div>
+    </div>
+    <br />
+    <button id="btnSave">save</button>
+    <script>
+        const btnSave = document.getElementById("btnSave");
+        btnSave.onclick = function changeContent() {
+            const bugList = document.querySelectorAll('div.bug-item');
+            bugList.forEach(bug => {
+                const bugInput = bug.querySelector(".bug-input");
+                const bugNo = bugInput.value;
+                bugInput.style = 'display:none;';
+
+                const bugLink = document.createElement("a");
+                const linkText = document.createTextNode(bugNo);
+                bugLink.appendChild(linkText);
+                bugLink.title = bugNo;
+                bugLink.href = "http://example.com/" + bugNo;
+                bug.appendChild(bugLink);
+            });
+
+            btnSave.style = 'display:none;';
+        };
+    </script>
+</body>
+
+</html>
